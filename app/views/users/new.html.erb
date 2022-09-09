@@ -15,8 +15,8 @@
   </fieldset>
 </form> -->
 
-<%= form_with(url: "/users", method: "post") do %>
-  <%= label_tag(:username, "User name") %>
+<!-- <%= form_tag("/users", method: "post") do %>
+  <%= label_tag(:username, "User name)") %>
   <%= text_field_tag(:username) %>
 
   <%= label_tag(:email, "E-mail") %>
@@ -26,5 +26,18 @@
   <%= password_field_tag(:password) %>
 
   <%= submit_tag("Submit") %>
+<% end %> -->
+
+<%= form_with model: @user, url: "/users", method: :post do |form| %>
+  <%= form.label :username, "User name" %>
+  <%= form.text_field :username, placeholder: "Try something cool?" %>
+
+  <%= form.label :email, "E-mail" %>
+  <%= form.email_field :email %>
+
+  <%= form.label :password, "Password" %>
+  <%= form.password_field :password %>
+
+  <%= form.submit "Submit" %>
 <% end %>
   
